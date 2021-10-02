@@ -12,7 +12,14 @@ export default function News() {
         {reports.map((entry) => {
           return (
             <li key={entry.id}>
-              <Link href={`/news/${entry.id}`}>{String(entry.id)}</Link>
+              <Link
+                href={{
+                  pathname: "/news/[newsId]",
+                  query: { newsId: entry.id },
+                }}
+              >
+                {String(entry.id)}
+              </Link>
             </li>
           );
         })}
