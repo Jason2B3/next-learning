@@ -8,22 +8,14 @@ export default function News() {
   return (
     <div>
       <h1>The "news" path HomePage</h1>
-      <ul>
-        {reports.map((entry) => {
-          return (
-            <li key={entry.id}>
-              <Link
-                href={{
-                  pathname: "/news/[newsId]",
-                  query: { newsId: entry.id },
-                }}
-              >
-                {String(entry.id)}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <Link
+        href={{
+          pathname: "/news/[newsId]",
+          query: { newsId: 1 },
+        }}
+      >
+        1
+      </Link>
     </div>
   ); // produces links to /news/1 and /news/2
 }
