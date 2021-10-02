@@ -1,20 +1,22 @@
 import Link from "next/link";
-function News() {
+
+export default function News() {
+  const reports = [
+    { id: 1, story: "bank robbery" },
+    { id: 2, story: "Lotto win" },
+  ];
   return (
-    <>
+    <div>
       <h1>The "news" path HomePage</h1>
       <ul>
-        <li>
-          <Link href="./news/today">Visit the news/today page!</Link>
-        </li>
-        <li>
-          <Link href="./weather/tomorrow">
-            Visit the weather/tomorrow page!
-          </Link>
-        </li>
+        {reports.map((entry) => {
+          return (
+            <li key={entry.id}>
+              <Link href={`/news/${entry.id}`}>{String(entry.id)}</Link>
+            </li>
+          );
+        })}
       </ul>
-    </>
-  );
+    </div>
+  ); // produces links to /news/1 and /news/2
 }
-
-export default News;
